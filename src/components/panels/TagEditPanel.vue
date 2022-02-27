@@ -14,15 +14,18 @@ export default {
     data(){
         return{
             tags:
-                [
-                    {id: 1, name:"Ação"},
-                    {id: 2, name:"Cool"}
-                ]
+            [
+                {name: "Julio"},
+                {name: 'Outro Julio'} 
+            ]
         }
     },
     methods:{
-        remove(){
-            //metodo para desveincular tag do movie
+        removeTag(){
+            //remover tag
+        },
+        createTag(){
+            //add tag
         }
     }
 }
