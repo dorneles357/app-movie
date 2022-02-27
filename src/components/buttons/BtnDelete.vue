@@ -10,6 +10,8 @@ export default {
 
 <style scoped>
     #delete{
+        font-size: 14px;
+        font-family: var(--font-family);
         height: 30px;
         width: 60px;
         color: var(--color-to-dark);

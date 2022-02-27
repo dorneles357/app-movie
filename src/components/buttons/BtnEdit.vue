@@ -1,5 +1,7 @@
 <template>
-    <button type="button" id="edit" to='/edit'>Editar</button>
+    <router-link id="edit" to='/edit'>
+        <P>Editar</P>
+    </router-link>
 </template>
 
 <script>
@@ -10,6 +12,13 @@ export default {
 
 <style scoped>
 #edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-family: var(--font-family);
+    text-align: center;
+    text-decoration: none;
     height: 30px;
     width: 60px;
     border-radius: 10px;
