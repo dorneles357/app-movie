@@ -13,6 +13,7 @@ export default {
 
 <style scoped>
 #btn-upload{
+    padding: 10px;
     margin:auto;
     border: 1px solid var(--color-link);
     border-radius: 99%;
