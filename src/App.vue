@@ -8,7 +8,7 @@
   --color-danger:#DC3545;
   --color-link: #42b983;
   --color-font: #2c3e50;
-  --color-border:#bbb7b7;
+  --color-border:#E5E5E5;
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
