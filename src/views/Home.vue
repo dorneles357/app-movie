@@ -1,7 +1,9 @@
 <template>
     <user-header/>
     <btn-upload/>
-    <movie-panel/>
+    <div id="panel">
+            <movie-panel/>
+    </div>
 </template>
 
 <script>
@@ -17,3 +19,14 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+    #panel{
+        display: flex;
+        justify-content: center;
+        padding: 20px 0px 20px 0px;
+        max-width: 1270px;
+        flex-wrap: wrap;
+
+    }
+</style>
