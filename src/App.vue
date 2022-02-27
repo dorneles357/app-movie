@@ -6,11 +6,12 @@
 :root{
   --color-link: #42b983;
   --color-font: #2c3e50;
-  --color-border:#716E6E;
-  --font-family: Avenir, Helvetica, Arial, sans-serif;
+  --color-border:#bbb7b7;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
