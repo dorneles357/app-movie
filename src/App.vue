@@ -4,6 +4,8 @@
 
 <style>
 :root{
+  --color-to-dark: white;
+  --color-danger:#DC3545;
   --color-link: #42b983;
   --color-font: #2c3e50;
   --color-border:#bbb7b7;
