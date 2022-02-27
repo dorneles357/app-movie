@@ -7,15 +7,23 @@
     </div>
     ...<!--TAGS-->..
     <div class="modal__footer">
-    <!--Btn DELETAR e EDITAR -->
-    ...
+        <btn-delete/>
+        <btn-edit/>
     </div>
 </div> 
 </template>
 
+
 <script>
+import BtnDelete from '../buttons/BtnDelete.vue';
+import BtnEdit from '../buttons/BtnEdit.vue';
+
 export default {
     name: 'MoviePanel',
+    components:{
+        BtnDelete,
+        BtnEdit,
+    },
     data(){
         return{
             api:
@@ -32,7 +40,7 @@ export default {
 
 <style scoped>
 .modal {
-    max-width: 150px;
+    max-width: 180px;
     border: 1px solid var(--color-border);
     border-radius: 4px;
 }
@@ -45,8 +53,9 @@ export default {
 }
 
 .modal__footer {
+    padding:10px 0px 10px 0px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     border-top: 1px solid var(--color-border);
 }
 
