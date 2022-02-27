@@ -21,7 +21,7 @@ export default {
     #box{
         font: var(--font-family);
         margin:auto;
-        width: 350px;
+        max-width: 350px;
         height: 500px;
         border: 1px solid var(--color-border);
         border-radius: 20px;
@@ -31,12 +31,16 @@ export default {
         align-items: center;
         justify-content: space-evenly;
     }
+    #input{
+        display: flex;
+        flex-direction: column;
+    }
 
     #input > input{
         font: var(--font-family);
         border: 1px solid #716E6E;
         border-radius: 5px;
-        margin: 20px;
+        margin: 20px 0px 20px 0px;
         width: 300px;
         height: 40px;
     }

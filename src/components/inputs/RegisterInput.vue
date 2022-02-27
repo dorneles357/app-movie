@@ -18,10 +18,11 @@ export default {
 
 <style scoped>
     #box{
+        padding-top:30px;
         margin: auto;
         border: 1px solid var(--color-border);
         border-radius: 20px;
-        max-height: 500px;
+        height: 500px;
         max-width: 600px;
     }
     #input{
