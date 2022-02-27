@@ -31,7 +31,7 @@ export default {
     }
     #input > input{
         font: var(--font-family);
-        border: 1px solid #716E6E;
+        border: 1px solid var(--color-border);
         border-radius: 5px;
         margin: 20px;
         max-width: 550px;
