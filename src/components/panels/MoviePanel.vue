@@ -15,6 +15,7 @@
 
 
 <script>
+import Movies from '../../services/movies';
 import TagPanel from './TagPanel.vue';
 import BtnDelete from '../buttons/BtnDelete.vue';
 import BtnEdit from '../buttons/BtnEdit.vue';
@@ -33,33 +34,7 @@ export default {
     },
     data(){
         return{
-            api:
-            [
-                {   
-                    id: 1,
-                    name: "Meu primeiro video",
-                    type: '.mp4',
-                    size: '3mb'
-                },
-                {
-                    id: 2,
-                    name: "Naruto Vs Jesus",
-                    type: '.mp4',
-                    size: '3mb'
-                },
-                {
-                    id: 3,
-                    name: "Final da Tarde",
-                    type: '.mp4',
-                    size: '3mb'
-                },
-                {
-                    id: 4,
-                    name: "Manhã de Primavera",
-                    type: '.mp4',
-                    size: '3mb'
-                },
-            ]
+                api:[]
         }   
     },
     methods:{
@@ -72,6 +47,11 @@ export default {
                 }
             })
         }
+    },
+    mounted(){
+        Movies.index().then(res =>{
+            this.api = res.data
+        })
     }
 
 }
