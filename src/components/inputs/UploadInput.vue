@@ -1,16 +1,16 @@
 <template>
-    <div id="box-upload">
+    <form id="box-upload" >
         <div class="container">
             <!-- The real file input -->
-            <input type="file" class="container__input" />
+            <input type="file" class="container__input" @submit.stop.prevent="submitName" />
 
             <!-- The upload icon -->
             <div class="container__icon"></div>
 
             <!-- The label -->
         </div>
-        <div id="input">
-            <input type="text" name="name" id="name" placeholder="Nome">
+        <div id="input" >
+            <input type="text" v-model="upload.name" name="name" id="name" placeholder="Nome">
         </div>
 
         <button type="submit" id="btn">Enviar</button>
@@ -18,12 +18,27 @@
         <div id="msg">
             <h3>Esperando arquivo ...</h3>
         </div>
-    </div>
+    </form>
 </template>
 
 <script>
 export default {
-    name:'UploadInput',    
+    name:'UploadInput',  
+    data(){
+        return{
+            upload:
+            {
+                arquive: '',
+                name: ''
+            }
+        }
+    },
+    methods:{
+        submitName(){
+            const data = {'name': this.upload.name}
+            console.log(data)
+        }
+    }  
 }
 </script>
 
@@ -61,6 +76,7 @@ export default {
 #input{
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
 }
 #input > input{
     font: var(--font-family);

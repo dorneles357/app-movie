@@ -7,8 +7,8 @@
     </div>
     <tag-panel/>
     <div class="modal__footer">
-        <btn-delete/>
-        <btn-edit/>
+        <btn-delete @click="remove(item.id)"/>
+        <btn-edit />
     </div>
 </div> 
 </template>
@@ -35,28 +35,43 @@ export default {
         return{
             api:
             [
-                {
+                {   
+                    id: 1,
                     name: "Meu primeiro video",
                     type: '.mp4',
                     size: '3mb'
                 },
                 {
+                    id: 2,
                     name: "Naruto Vs Jesus",
                     type: '.mp4',
                     size: '3mb'
                 },
-                                {
+                {
+                    id: 3,
                     name: "Final da Tarde",
                     type: '.mp4',
                     size: '3mb'
                 },
-                                {
+                {
+                    id: 4,
                     name: "Manhã de Primavera",
                     type: '.mp4',
                     size: '3mb'
                 },
             ]
         }   
+    },
+    methods:{
+        remove(event){
+            const data = this.api;
+            
+            data.forEach((item, index) =>{
+                if(item.id == event){
+                    data.splice(index, 1)
+                }
+            })
+        }
     }
 
 }
