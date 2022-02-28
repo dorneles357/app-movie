@@ -5,7 +5,7 @@
         </div>
         <div id="nav-bar">
             <router-link to="/profile" class="link-menu" id='profile'>Perfil</router-link>
-            <router-link to="/logout" class="link-menu">Sair</router-link>
+            <router-link to="" class="link-menu">Sair</router-link>
         </div>
     </div>
 </template>
