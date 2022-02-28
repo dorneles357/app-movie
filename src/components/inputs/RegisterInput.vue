@@ -1,14 +1,14 @@
 <template>
-    <div id="box">
-        <form id="input" @submit.stop.prevent="register">
+    <form id="box" @submit.stop.prevent="register">
+        <div id="input" >
             <input v-model="name" type="text" name="name" id="name" placeholder="Nome">
             <input v-model="email" type="email" name="email" id="email" placeholder="Email">
             <input v-model="password" type="password" name="password" id="psw" placeholder="Senha">
-            <input v-model="conf_psw" type="password" name="conf_psw" id="conf_psw" placeholder="Confirme a senha">
-            <button type="submit" id="btn">Entrar</button>
-        </form>
+            <input v-model="conf_psw" type="password" name="conf_psw" id="conf_psw" placeholder="Confirme a senha">    
+        </div>
+        <button type="submit" id="btn">Entrar</button>
         
-    </div>    
+    </form>    
 </template>
 
 <script>
@@ -48,26 +48,26 @@ export default {
 
 
         display: flex;
+        
         flex-direction: column;
-        align-items: center;
         justify-content: space-evenly;
     }
     #input{
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
     #input > input{
         font: var(--font-family);
         border: 1px solid var(--color-border);
         border-radius: 5px;
         margin: 20px;
-        width: 100%;
+        max-width: 550px;
         height: 40px;
     }
     #btn{
-        margin-top: 50px;
-        margin-bottom: 20px;
+        margin:auto;
+/*         margin-top: 50px;
+        margin-bottom: 20px; */
         font: var(--font-family);
         height: 40px;
         width: 100px;

@@ -1,16 +1,20 @@
 <template>
     <div id="box-upload">
         <h1>Escolhas as novas anotações</h1>
-        <div class='box-data'>
-        <input type="text" name="name" id="name" placeholder="Escolha um titulo">
-        </div>
-        <button type="submit" @click="updateMovie($event)" class="btn">Adicionar</button>
+        <form @submit.stop.prevent="submitMovie" >
+            <div class='box-data'>
+                <input type="text" v-model="api.movie" name="name" id="name" placeholder="Escolha um titulo">
+            </div>
+            <button  class="btn">Adicionar</button>
+        </form>
 
+        <form action="" @submit.stop.prevent="submitTag">
         <div class="box-data">
-        <input type="text" name="name" id="tag" placeholder="Digite uma nova tag ">
+            <input type="text" v-model="api.tag" name="name" id="tag" placeholder="Digite uma nova tag ">
         </div>  
 
-        <button type="submit" @click="createTags($event)" class="btn">Adicionar</button>
+        <button type="submit" class="btn">Adicionar</button>
+        </form>
 
         <div>
             <panel-edit-tag/>
@@ -26,14 +30,23 @@ export default {
         PanelEditTag,
     },
     data(){
-
+        return{
+            api:
+                {
+                    movie:'',
+                    tag: ''
+                }
+        }
     },
     methods:{
-        updateMovie(){
+        submitMovie(){
+            const data = {"name": this.api.movie};
 
+            console.log(data)
         },
-        createTags(){
-            
+        submitTag(){
+            const data = {"name": this.api.tag};
+            console.log(data)
         }
     }
 }
