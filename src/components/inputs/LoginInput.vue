@@ -3,17 +3,29 @@
         <div id="logo">
             <h2>MovieApp</h2>
         </div>
-        <div id="input">
-            <input type="email" name="email" id="email" placeholder="Email">
-            <input type="password" name="password" id="password" placeholder="Senha">
-        </div>
-        <button type="submit" id="btn">Entrar</button>
+        <form id="input" @submit.stop.prevent="submit">
+            <input v-model="email" type="email" name="email" id="email" placeholder="Email">
+            <input v-model="password" type="password" name="password" id="password" placeholder="Senha">
+            <button type="submit" id="btn">Entrar</button>
+        </form>
     </div>
 </template>
 
 <script>
 export default {
     name:'LoginInput',
+    data(){
+        return{
+                email:'',
+                password:'',
+        }
+    },
+    methods:{
+        submit(){
+            const payload = {email:this.email, password: this.password};
+            console.log(payload)
+        }
+    }
 }
 </script>
 
@@ -34,6 +46,7 @@ export default {
     #input{
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     #input > input{
