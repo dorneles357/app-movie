@@ -4,7 +4,7 @@
     <div class="chip__content">
         {{tag.name}}
     </div>
-     <span @click="remove">x</span>
+     <span @click="removeTag(tag.id)">x</span>
 </div>
 </template>
 
@@ -15,14 +15,20 @@ export default {
         return{
             tags:
             [
-                {name: "Julio"},
-                {name: 'Outro Julio'} 
+                {id: 1, name: "Julio"},
+                {id: 2, name: 'Outro Julio'} 
             ]
         }
     },
     methods:{
-        removeTag(){
-            //remover tag
+        removeTag(event){
+            const data = this.tags;
+
+            data.forEach((item, index) => {
+                if(item.id == event){
+                    data.splice(index, 1);
+                }
+            });
         },
         createTag(){
             //add tag
