@@ -6,7 +6,7 @@
             <input type="password" name="password" id="psw" placeholder="Senha">
             <input type="password" name="conf_psw" id="conf_psw" placeholder="Confirme a senha">
         </div>
-        <button type="submit" id="btn">Entrar</button>
+        <button type="submit" id="btn">Alterar</button>
     </div>    
 </template>
 
@@ -29,7 +29,7 @@ export default {
     #box{
         padding-top:30px;
         margin: auto;
-        border: 1px solid var(--color-border);
+        border: 1px solid var(--color-input-border);
         border-radius: 20px;
         height: 500px;
         max-width: 600px;

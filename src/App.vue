@@ -4,6 +4,7 @@
 
 <style>
 :root{
+  --color-input-border: #716E6E;
   --color-to-dark: white;
   --color-danger:#DC3545;
   --color-link: #42b983;

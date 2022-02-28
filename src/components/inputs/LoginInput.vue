@@ -35,7 +35,7 @@ export default {
         margin:auto;
         max-width: 350px;
         height: 500px;
-        border: 1px solid var(--color-border);
+        border: 1px solid var(--color-input-border);
         border-radius: 20px;
 
         display: flex;
@@ -51,7 +51,7 @@ export default {
 
     #input > input{
         font: var(--font-family);
-        border: 1px solid #716E6E;
+        border: 1px solid var(--color-input-border);
         border-radius: 5px;
         margin: 20px 0px 20px 0px;
         width: 300px;

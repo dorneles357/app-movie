@@ -80,7 +80,7 @@ export default {
 }
 #input > input{
     font: var(--font-family);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-input-border);
     border-radius: 5px;
     margin: 20px;
     max-width: 550px;

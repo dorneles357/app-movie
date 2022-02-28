@@ -41,7 +41,7 @@ export default {
     #box{
         padding-top:30px;
         margin: auto;
-        border: 1px solid var(--color-border);
+        border: 1px solid var(--color-input-border);
         border-radius: 20px;
         height: 500px;
         max-width: 600px;
@@ -58,7 +58,7 @@ export default {
     }
     #input > input{
         font: var(--font-family);
-        border: 1px solid var(--color-border);
+        border: 1px solid var(--color-input-border);
         border-radius: 5px;
         margin: 20px;
         max-width: 550px;
