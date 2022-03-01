@@ -3,21 +3,21 @@
         <h1>Escolhas as novas anotações</h1>
         <form @submit.stop.prevent="submitMovie" >
             <div class='box-data'>
-                <input type="text" v-model="api.movie" name="name" id="name" :placeholder="event($route.params.id)">
+                <input type="text" v-model="api.movie" name="name" id="name" :placeholder="update_movie.name">
             </div>
             <button  class="btn">Adicionar</button>
         </form>
 
         <form action="" @submit.stop.prevent="submitTag">
         <div class="box-data">
-            <input type="text" v-model="api.tag" name="name" id="tag" placeholder="Digite uma nova tag ">
+            <input type="text" v-model="api.tag" name="name" onfocus="this.value=''" id="tag" placeholder="Digite uma nova tag ">
         </div>  
 
-        <button type="submit" class="btn">Adicionar</button>
+        <button type="submit" @click="formReset" class="btn">Adicionar</button>
         </form>
 
         <div>
-            <panel-edit-tag/>
+            <panel-edit-tag :data="tag"/>
         </div>
     </div>
 </template>
@@ -39,7 +39,13 @@ export default {
                     _id:''
                 }, 
             update_movie:[], 
-            id: ''
+            id: '',
+
+            tag:
+                [
+                    {id: 1, name: "Julio"},
+                    {id: 2, name: 'Outro Julio'} 
+                ]
         }
     },
     methods:{
@@ -53,19 +59,22 @@ export default {
         },
         submitTag(){
             const data = {"name": this.api.tag};
-            console.log(data)
-        },
-        event(id){
-            this._id = id;
-            Movie.show(id).then((res)=>{
-                this.update_movie = res.data.movie;
-        });
+            this.tag.push(data);
 
-        return this.update_movie.name;
+            
+        },
+        formRest(){
+            const form = document.querySelector('#tag');
+            console.log(form.value)
+            
         }
     }, 
     mounted(){
-
+        const id = this.$route.params.id;
+        this._id = id;
+        Movie.show(id).then(res =>{
+            this.update_movie = res.data.movie;
+        })
     }
 }
 </script>

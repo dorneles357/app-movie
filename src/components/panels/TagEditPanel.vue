@@ -1,5 +1,5 @@
 <template>
-    <div class="chip" v-for="tag in tags" :key="tag">
+    <div class="chip" v-for="tag in data" :key="tag.item">
     <!-- Content -->
     <div class="chip__content">
         {{tag.name}}
@@ -11,22 +11,23 @@
 <script>
 export default {
     name:'PanelEditTag',
+    props:{
+        data:{type: Array}
+    },
     data(){
         return{
-            tags:
-            [
-                {id: 1, name: "Julio"},
-                {id: 2, name: 'Outro Julio'} 
-            ]
+        
         }
     },
     methods:{
         removeTag(event){
-            const data = this.tags;
+            const tag = this.data;
 
-            data.forEach((item, index) => {
+            tag.forEach((item, index) => {
                 if(item.id == event){
-                    data.splice(index, 1);
+                    console.log(event)
+                    tag.splice(index, 1);
+                    
                 }
             });
         },
