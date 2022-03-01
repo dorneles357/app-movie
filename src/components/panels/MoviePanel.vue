@@ -4,11 +4,11 @@
     <div class="modal__header">
     <p>{{item.type}}</p>
     <p>{{item.size}}</p>
-    </div>
-    <tag-panel/>
+    </div> 
+    <tag-panel :tags="tags"/>
     <div class="modal__footer">
         <btn-delete @click="remove(item.id)"/>
-        <btn-edit />
+        <btn-edit @click="edit(item.id)" :route="{name:'Edit', params:{id:item.id}}"/>
     </div>
 </div> 
 </template>
@@ -27,25 +27,33 @@ export default {
         BtnEdit,
         TagPanel,
     },
-    props:{
-        name:String,
-        type:String,
-        size:String,
-    },
     data(){
         return{
-                api:[]
+                api:[],
+                tags:[{name:'bom'}, {name:'não tão bom'}]
         }   
     },
     methods:{
         remove(event){
             const data = this.api;
-            
+            console.log(event)
             data.forEach((item, index) =>{
                 if(item.id == event){
-                    data.splice(index, 1)
+                    if(confirm("Deseja excluir esse arquivo?")){
+                        data.splice(index, 1)
+                        Movies.delete(event).then(res=>{
+                            console.log(res)
+                        })
+                    }
                 }
             })
+        },
+        edit(event){
+            console.log(event)
+        },
+
+        route(){
+            this.$router.push({name: "upload"})
         }
     },
     mounted(){

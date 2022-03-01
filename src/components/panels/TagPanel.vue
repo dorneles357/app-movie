@@ -1,7 +1,7 @@
 <template>
     <div class="chip" v-for="tag in tags" :key="tag">
     <div class="chip__content">
-        {{name}}
+        {{tag.name}}
     </div>
 </div>
 </template>
@@ -9,6 +9,9 @@
 <script>
 export default {
     name:'PanelEditTag',
+    props:{
+        tags:{type: Object}
+    }
 }
 </script>
 
@@ -32,6 +35,7 @@ export default {
 
 .chip__content {
     margin-right: 4px;
+    font-size: 12px;
 }
 
 span{
