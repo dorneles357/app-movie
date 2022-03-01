@@ -1,12 +1,17 @@
 <template>
-    <router-link id="edit" to='/edit'>
+    <router-link :to="route" id="edit" >
         <P>Editar</P>
     </router-link>
 </template>
 
 <script>
 export default {
-    name:'BtnEdit'
+    name:'BtnEdit', 
+    props:{
+        route:{
+            type: Object, 
+        }
+    }
 }
 </script>
 

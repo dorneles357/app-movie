@@ -3,7 +3,7 @@
         <h1>Escolhas as novas anotações</h1>
         <form @submit.stop.prevent="submitMovie" >
             <div class='box-data'>
-                <input type="text" v-model="api.movie" name="name" id="name" placeholder="Escolha um titulo">
+                <input type="text" v-model="api.movie" name="name" id="name" :placeholder="event($route.params.id)">
             </div>
             <button  class="btn">Adicionar</button>
         </form>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import Movie from '../../services/movies';
 import PanelEditTag from '../panels/TagEditPanel.vue';
 export default {
     name:'EditInput',
@@ -34,20 +35,37 @@ export default {
             api:
                 {
                     movie:'',
-                    tag: ''
-                }
+                    tag: '',
+                    _id:''
+                }, 
+            update_movie:[], 
+            id: ''
         }
     },
     methods:{
         submitMovie(){
             const data = {"name": this.api.movie};
+            const id = this._id;
 
-            console.log(data)
+            Movie.update(id, data).then(res=>{
+                /* console.log(res); */
+            })
         },
         submitTag(){
             const data = {"name": this.api.tag};
             console.log(data)
+        },
+        event(id){
+            this._id = id;
+            Movie.show(id).then((res)=>{
+                this.update_movie = res.data.movie;
+        });
+
+        return this.update_movie.name;
         }
+    }, 
+    mounted(){
+
     }
 }
 </script>
