@@ -1,8 +1,8 @@
 <template>
-    <form id="box-upload" >
+    <form id="box-upload" @submit.stop.prevent="submit">
         <div class="container">
             <!-- The real file input -->
-            <input type="file" class="container__input" @submit.stop.prevent="submitName" />
+            <!-- <input type="file" class="container__input" @submit.stop.prevent="submitName" /> -->
 
             <!-- The upload icon -->
             <div class="container__icon"></div>
@@ -16,12 +16,13 @@
         <button type="submit" id="btn">Enviar</button>
 
         <div id="msg">
-            <h3>Esperando arquivo ...</h3>
+            <h3 id = "panel">Esperando arquivo ...</h3>
         </div>
     </form>
 </template>
 
 <script>
+import Movie from '../../services/movies'
 export default {
     name:'UploadInput',  
     data(){
@@ -34,11 +35,22 @@ export default {
         }
     },
     methods:{
-        submitName(){
+        submit(){
             const data = {'name': this.upload.name}
-            console.log(data)
-        }
-    }  
+            Movie.store(data).then(res =>{
+                document.getElementById('panel').innerHTML = 'ok'
+                setTimeout(()=>{
+                    document.getElementById('panel').innerHTML = 'Esperando arquivo ...'
+                }, 2000)
+            })
+        }, 
+
+/*         create(){
+            Movie.create(this.data).then(res=>{
+                alert('salvo com sucesso');
+            })
+        } */
+    },
 }
 </script>
 
