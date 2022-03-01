@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import Tag from '../../services/tags';
 import Movie from '../../services/movies';
 import PanelEditTag from '../panels/TagEditPanel.vue';
 export default {
@@ -43,8 +44,7 @@ export default {
 
             tag:
                 [
-                    {id: 1, name: "Julio"},
-                    {id: 2, name: 'Outro Julio'} 
+
                 ]
         }
     },
@@ -57,23 +57,20 @@ export default {
                 /* console.log(res); */
             })
         },
-        submitTag(){
+        async submitTag(){
             const data = {"name": this.api.tag};
-            this.tag.push(data);
-
-            
+            const res = await Tag.store(this._id, data);
+            console.log(res);
         },
-        formRest(){
-            const form = document.querySelector('#tag');
-            console.log(form.value)
-            
-        }
     }, 
     mounted(){
         const id = this.$route.params.id;
         this._id = id;
         Movie.show(id).then(res =>{
             this.update_movie = res.data.movie;
+            const tags = this.update_movie.tags;
+
+            this.tag = tags;
         })
     }
 }

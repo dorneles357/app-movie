@@ -9,7 +9,9 @@
 </template>
 
 <script>
+import Tag from '../../services/tags';
 export default {
+    
     name:'PanelEditTag',
     props:{
         data:{type: Array}
@@ -25,7 +27,7 @@ export default {
 
             tag.forEach((item, index) => {
                 if(item.id == event){
-                    console.log(event)
+                    Tag.delete(event).then(res=> console.log(res))
                     tag.splice(index, 1);
                     
                 }

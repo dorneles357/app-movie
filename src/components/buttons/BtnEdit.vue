@@ -1,7 +1,7 @@
 <template>
-    <router-link :to="route" id="edit" >
+    <RouterLink :to="route" id="edit" >
         <P>Editar</P>
-    </router-link>
+    </RouterLink>
 </template>
 
 <script>
