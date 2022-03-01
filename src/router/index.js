@@ -5,12 +5,12 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import('../views/Login.vue')
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
+    component: () => import('../views/Register.vue')
   },
   {
     path: '/Home',
@@ -20,17 +20,17 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Profile.vue')
+    component: () => import('../views/Profile.vue')
   },
   {
     path: '/upload',
     name: 'Upload',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Upload.vue')
+    component: () => import('../views/Upload.vue')
   },
   {
     path: '/edit/:id',
     name: 'Edit',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Edit.vue')
+    component: () => import( '../views/Edit.vue')
   },
   
 

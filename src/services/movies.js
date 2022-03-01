@@ -4,6 +4,12 @@ export default  {
     index:()=>{
         return http.get('movies/index');
     },
+    orderbyASC:()=>{
+        return http.get('movies/index/orderby/asc');
+    },
+    orderbyDESC:()=>{
+        return http.get('movies/index/orderby/desc');
+    },
     show:(id)=>{
         return http.get(`movies/${id}`);
     }, 
