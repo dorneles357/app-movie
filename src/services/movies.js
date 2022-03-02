@@ -14,7 +14,7 @@ export default  {
         return http.get(`movies/${id}`);
     }, 
     store:(movie)=>{
-        return http.post('movies/create', movie);
+        return http.post('movies/create', movie, {Headers:{'Content-Type':'multipart/form-data'}});
     },
     update:(id, movie)=>{
         return http.put(`movies/update/${id}`, movie);

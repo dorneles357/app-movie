@@ -1,24 +1,20 @@
 <template>
-    <form id="box-upload" @submit.stop.prevent="submit">
-        <div class="container">
-            <!-- The real file input -->
-            <!-- <input type="file" class="container__input" @submit.stop.prevent="submitName" /> -->
-
-            <!-- The upload icon -->
-            <div class="container__icon"></div>
-
-            <!-- The label -->
+    <div id="box-upload">
+        <div>
+            <br>
+            <input type="file" @change.capture.prevent="submitEvent">
+            <br>
+            <br>
         </div>
-        <div id="input" >
-            <input type="text" v-model="upload.name" name="name" id="name" placeholder="Nome">
-        </div>
+        <form @submit.stop.prevent="submit">
+            <br>
+            <input type="text" placeholder="Titulo" name="name" id="name" v-model="name" >
+            <br>
+            <br>
+            <button type="submit">enviar</button>
+        </form>
+    </div>
 
-        <button type="submit" id="btn">Enviar</button>
-
-        <div id="msg">
-            <h3 id = "panel">Esperando arquivo ...</h3>
-        </div>
-    </form>
 </template>
 
 <script>
@@ -27,30 +23,33 @@ export default {
     name:'UploadInput',  
     data(){
         return{
-            upload:
-            {
-                arquive: '',
-                name: ''
-            }
+            name:'',
+            arquive:''
         }
     },
     methods:{
-        submit(){
-            const data = {'name': this.upload.name}
-            Movie.store(data).then(res =>{
-                document.getElementById('panel').innerHTML = 'ok'
-                setTimeout(()=>{
-                    document.getElementById('panel').innerHTML = 'Esperando arquivo ...'
-                }, 2000)
-            })
-        }, 
+            submitEvent(event){
+                this.arquive = event.target.files[0];
+                this.name = this.name_movie;
+                console.log(this.arquive)
+            },
+            submit(){
+              let form  = new FormData();
+                form.append('imagem', this.arquive);
+                form.append('name', this.arquive.name);
 
-/*         create(){
-            Movie.create(this.data).then(res=>{
-                alert('salvo com sucesso');
-            })
-        } */
-    },
+                const data ={
+                    name: this.name,
+                    file: form
+                }
+                 console.log(data)
+
+               Movie.store(data).then(res =>{
+                    console.log(json);
+                })
+
+            }
+        }, 
 }
 </script>
 
@@ -63,58 +62,6 @@ export default {
     height: 500px;
     max-width: 600px;
 }
-.container {
-    height: 25px;
-    margin: auto;
-    position: relative;
-    max-width: 550px;
-    align-items: center;
-    display: flex;
 
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-}
-
-.container__input {
-
-    height: 25px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-}
-
-#input{
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-}
-#input > input{
-    font: var(--font-family);
-    border: 1px solid var(--color-input-border);
-    border-radius: 5px;
-    margin: 20px;
-    max-width: 550px;
-    height: 40px;
-}
-
-#btn{
-    margin-top: 50px;
-    margin-bottom: 20px;
-    font: var(--font-family);
-    height: 40px;
-    width: 100px;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-}
-#btn:hover{
-    color: var(--color-link);
-}
-
-#msg{
-    margin-top: 30px;
-    padding-top: 30px;
-}
 
 </style>
