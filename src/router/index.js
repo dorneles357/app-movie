@@ -17,11 +17,11 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  {
+/*   {
     path: '/profile',
     name: 'Profile',
     component: () => import('../views/Profile.vue')
-  },
+  }, */
   {
     path: '/upload',
     name: 'Upload',

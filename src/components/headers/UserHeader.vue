@@ -4,7 +4,7 @@
             <router-link to="/home" class="link-menu" id="name">MovieApp</router-link>
         </div>
         <div id="nav-bar">
-            <router-link to="/profile" class="link-menu" id='profile'>Perfil</router-link>
+            <!-- <router-link to="/profile" class="link-menu" id='profile'>Perfil</router-link> -->
             <router-link to="" class="link-menu">Sair</router-link>
         </div>
     </div>
