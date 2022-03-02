@@ -1,11 +1,11 @@
 <template>
-    <div id="box-upload">
-        <div>
+    <form id="box-upload" enctype="multipart/form-data">
+        <form >
             <br>
-            <input type="file" @change.capture.prevent="submitEvent">
+            <input type="file"  multiple ref="files" @change.capture.prevent="submitEvent">
             <br>
             <br>
-        </div>
+        </form>
         <form @submit.stop.prevent="submit">
             <br>
             <input type="text" placeholder="Titulo" name="name" id="name" v-model="name" >
@@ -13,7 +13,7 @@
             <br>
             <button type="submit">enviar</button>
         </form>
-    </div>
+    </form>
 
 </template>
 
@@ -30,23 +30,17 @@ export default {
     methods:{
             submitEvent(event){
                 this.arquive = event.target.files[0];
-                this.name = this.name_movie;
                 console.log(this.arquive)
             },
             submit(){
               let form  = new FormData();
-                form.append('imagem', this.arquive);
-                form.append('name', this.arquive.name);
-
-                const data ={
-                    name: this.name,
-                    file: form
-                }
-                 console.log(data)
-
-               Movie.store(data).then(res =>{
-                    console.log(json);
-                })
+                form.append('file', this.arquive);
+                form.append('name', this.name);
+                
+                console.log(this.arquive)
+             Movie.store(form).then(res =>{
+                    console.log(res);
+                }) 
 
             }
         }, 
