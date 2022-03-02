@@ -15,7 +15,7 @@
     <h3>{{item.name}}</h3>
     <div class="modal__header">
     <p>{{item.type}}</p>
-    <p>{{item.size}}</p>
+    <p>{{item.size}}Byte</p>
     </div> 
     <div class="modal__footer">
         <btn-delete @click="remove(item.id)"/>
