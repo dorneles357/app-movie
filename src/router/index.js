@@ -23,16 +23,19 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: () => import('../views/Profile.vue')
+    beforeEnter: Guard.auth
   }, */
   {
     path: '/upload',
     name: 'Upload',
-    component: () => import('../views/Upload.vue')
+    component: () => import('../views/Upload.vue'),
+    beforeEnter: Guard.auth
   },
   {
     path: '/edit/:id',
     name: 'Edit',
-    component: () => import( '../views/Edit.vue')
+    component: () => import( '../views/Edit.vue'),
+    beforeEnter: Guard.auth
   },
   
 

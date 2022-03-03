@@ -5,14 +5,23 @@
         </div>
         <div id="nav-bar">
             <!-- <router-link to="/profile" class="link-menu" id='profile'>Perfil</router-link> -->
-            <router-link to="" class="link-menu">Sair</router-link>
+            <router-link to="/login" @click="logout" class="link-menu">Sair</router-link>
         </div>
     </div>
 </template>
 
 <script>
+import Cookie from 'js-cookie';
+import Auth from '../../services/auth';
 export default {
     name: 'UserHeader',
+    methods:{
+        async logout(){
+            const token = Cookie.get('token');
+            const res = await Auth.logout(token)
+            Cookie.remove('token', token)
+        }
+    }
 }
 </script>
 
