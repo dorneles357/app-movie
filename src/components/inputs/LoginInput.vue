@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import Auth from '../../services/auth';
+import Cookie from 'js-cookie';
 export default {
     name:'LoginInput',
     data(){
@@ -21,12 +23,23 @@ export default {
         }
     },
     methods:{
-        submit(){
+        async submit(){
             const payload = {email:this.email, password: this.password};
-            console.log(payload)
-        }
+            const res = await Auth.login(payload);
+
+            if(res.data.access_token){
+                this.$router.push({name:"Home"});
+                Cookie.set('token', res.data.access_token)
+            }else{
+                alert('dados inválidos')
+            }
+            
+  
+
+            }
     }
 }
+
 </script>
 
 <style scoped>
