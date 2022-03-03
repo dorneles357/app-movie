@@ -45,7 +45,11 @@ export default {
                         document.getElementById('msg').innerHTML = "Campo inválido, confira as informações"
                     }
 
-                    setTimeout(()=>{document.getElementById('msg').innerHTML = "Esperando arquivo ..."}, 3000)
+                    setTimeout(()=>{
+                        document.getElementById('msg').innerHTML = "Esperando arquivo ...";
+                        location.reload();
+                        }, 2000)
+                    
                 }) 
 
             }

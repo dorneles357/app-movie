@@ -8,7 +8,7 @@
             <button  class="btn">Adicionar</button>
         </form>
 
-        <form action="" @submit.stop.prevent="submitTag">
+        <form @submit.stop.prevent="submitTag">
         <div class="box-data">
             <input type="text" v-model="api.tag" name="name" onfocus="this.value=''" id="tag" placeholder="Digite uma nova tag ">
         </div>  
@@ -49,18 +49,20 @@ export default {
         }
     },
     methods:{
-        submitMovie(){
+        async submitMovie(){
             const data = {"name": this.api.movie};
             const id = this._id;
 
-            Movie.update(id, data).then(res=>{
-                /* console.log(res); */
-            })
+            const res  = await Movie.update(id, data)
+
+            location.reload();
         },
         async submitTag(){
             const data = {"name": this.api.tag};
             const res = await Tag.store(this._id, data);
             console.log(res);
+
+            location.reload();
         },
     }, 
     mounted(){
