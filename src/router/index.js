@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/Home.vue';
 import Guard from '../services/middleware';
 
 const routes = [
@@ -17,7 +17,7 @@ const routes = [
     path: '/Home',
     name: 'Home',
     component: Home,
-    beforeEnter: Guard.auth
+
   },
 /*   {
     path: '/profile',
@@ -28,14 +28,16 @@ const routes = [
   {
     path: '/upload',
     name: 'Upload',
+    beforeEnter: Guard.auth,
     component: () => import('../views/Upload.vue'),
-    beforeEnter: Guard.auth
+    
   },
   {
     path: '/edit/:id',
     name: 'Edit',
+    beforeEnter: Guard.auth,
     component: () => import( '../views/Edit.vue'),
-    beforeEnter: Guard.auth
+    
   },
   
 

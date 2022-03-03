@@ -1,26 +1,39 @@
+import Cookies from 'js-cookie';
 import {http} from './config'
 
+
+const USER_TOKEN = Cookies.get('token')
+const AuthStr = 'Bearer '.concat(USER_TOKEN)
+
+
 export default  {
-    index:()=>{
-        return http.get('movies/index');
+    index: async()=>{
+        const res = await http.get('movies/index', { headers: { Authorization: AuthStr} });
+         return res;
     },
-    orderbyASC:()=>{
-        return http.get('movies/index/orderby/asc');
+    orderbyASC:async()=>{
+        const res = await http.get('movies/index/orderby/asc', { headers: { Authorization: AuthStr} });
+        return res;
     },
-    orderbyDESC:()=>{
-        return http.get('movies/index/orderby/desc');
+    orderbyDESC:async()=>{
+        const res = await http.get('movies/index/orderby/desc',  { headers: { Authorization: AuthStr} });
+        return res;
     },
-    show:(id)=>{
-        return http.get(`movies/${id}`);
+    show:async(id)=>{
+        const res = await http.get(`movies/${id}`, { headers: { Authorization: AuthStr} });
+        return res;
     }, 
-    store:(movie)=>{
-        return http.post('movies/create',movie, {Headers:{'Content-Type':'multipart/form-data'}});
+    store:async(movie)=>{
+       const res = await http.post('movies/create',movie, {headers:{'Content-Type':'multipart/form-data', Authorization: AuthStr}});
+       return res;
     },
-    update:(id, movie)=>{
-        return http.put(`movies/update/${id}`, movie);
+    update:async (id, movie)=>{
+        const res  = await http.put(`movies/update/${id}`, movie);
+        return res;
     },
-    delete:(id)=>{
-        return http.delete(`movies/delete/${id}`);
+    delete:async(id)=>{
+        const res = await http.delete(`movies/delete/${id}`);
+        return res;
     },
 
 }
