@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import Auth from '../../services/auth';
 export default {
     name: 'RegisterInput',
     data(){
@@ -23,15 +24,23 @@ export default {
         }
     },
     methods:{
-        register(){
+        async register(){
             const data_resgister = {
                 name: this.name,
                 email: this.email,
                 password: this.password,
-                conf_pws: this.conf_psw
+                passwordConf: this.conf_psw
             };
-
-            console.log(data_resgister) 
+        
+            const res = await Auth.register(data_resgister);
+            
+            if(res.data && res.data.message == "User created"){
+                alert('Usuário criado com sucesso, Faça o login e aproveite!')
+                this.$router.push({name : "Login"})
+            }else{
+                alert('Verifique se as informações estão corretas e os campos devidamente preenchidos.')
+            }
+            
         }
     }
 }
