@@ -19,7 +19,7 @@ export default {
         async logout(){
             const token = Cookie.get('token');
             const res = await Auth.logout(token)
-            Cookie.remove('token', token)
+            console.log(token)
         }
     }
 }

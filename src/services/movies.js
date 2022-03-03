@@ -28,11 +28,11 @@ export default  {
        return res;
     },
     update:async (id, movie)=>{
-        const res  = await http.put(`movies/update/${id}`, movie);
+        const res  = await http.put(`movies/update/${id}`, movie, { headers: { Authorization: AuthStr} });
         return res;
     },
     delete:async(id)=>{
-        const res = await http.delete(`movies/delete/${id}`);
+        const res = await http.delete(`movies/delete/${id}`, { headers: { Authorization: AuthStr} });
         return res;
     },
 

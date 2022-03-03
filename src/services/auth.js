@@ -9,5 +9,8 @@ export default  {
     },
     logout:(token)=>{
         return http.post('auth/login', token);
+    },
+    me:(token)=>{
+        return http.post('auth/login', token);
     }
 }

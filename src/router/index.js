@@ -17,7 +17,7 @@ const routes = [
     path: '/Home',
     name: 'Home',
     component: Home,
-
+    beforeEnter: Guard.auth,
   },
 /*   {
     path: '/profile',
